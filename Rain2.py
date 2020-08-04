@@ -46,7 +46,6 @@ def output_data_str(data):
 
 
 f_list = glob.glob("RxData/**", recursive=True)
-test_path = "RxData/200910/20091012/192.168.100.9_csv.log"
 
 pattern_file = r'.*/192.168.100.[0-9]*_csv.log$'
 pattern_dir = r'.*/2009([0-9]*)/[0-9]*$'
@@ -62,12 +61,11 @@ for sep in f_list:
         f_data.append(sep)
     if res_dir:
         direc.append(sep)
-'''
+
 for d in direc:
     d = 'fixData/'+d
     p = pathlib.Path(d)
     p.mkdir(parents=True)
-'''
 
 error_data_file = 0
 error_loss_data = 0
@@ -176,16 +174,13 @@ for f in f_data:
 
     original_file.close()
 
-    print('file is : {}'.format(f))
-    print("dat_10s:{0}".format(len(dat_10s)))
     if len(dat_10s) != 8640:
         error_loss_data += 1
-    '''
+
     exp_path = "fixData/"+f
     with open(exp_path, 'a', encoding='utf-8') as export_file:
         for j in dat_10s:
             export_file.write('{}'.format(j))
-    '''
 
 
 print(error_data_file, error_loss_data)
