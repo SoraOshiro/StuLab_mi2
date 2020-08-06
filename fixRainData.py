@@ -43,7 +43,6 @@ for ori_file_name in f_name_list:
             cnt += 1
 
     if cnt < 720:
-        print(ori_file_name)
         continue
 
     with open(export_path, 'w') as exp_file:
