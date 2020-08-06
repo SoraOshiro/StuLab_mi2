@@ -3,7 +3,7 @@ import re
 import glob
 
 f_d_list = glob.glob("fixData/RxData/**", recursive=True)
-pattern_file = r'.*/192.168.100.9_csv.log$'
+pattern_file = r'.*/192\.168\.100\.9_csv\.log$'
 file_name_list = []
 
 for sep in f_d_list:
@@ -17,9 +17,9 @@ for file_name in file_name_list:
         ori_data = csv.reader(ori_file)
         for d in ori_data:
             val = int(d[1])
-            if val < 0:
+            if val < -1:
                 val += 256
-            val = int(0.5 * val) - 121
+            val = int(val/2 - 121)
             d[1] = str(val)
             export_data_list.append(d)
 
