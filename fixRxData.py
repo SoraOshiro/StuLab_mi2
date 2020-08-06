@@ -169,7 +169,7 @@ for f in f_data:
         i += 1
 
     original_file.close()
-    
+
     exp_path = "fixData/"+f
     with open(exp_path, 'a', encoding='utf-8') as export_file:
         for j in dat_10s:
