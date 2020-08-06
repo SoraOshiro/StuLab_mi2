@@ -11,14 +11,18 @@ for sep in f_list:
     if res_file:
         f_name_list.append(sep)
 
+# 最大値，刻み幅の設定
 max_val = 150
 tau = 3
 size_list = int(max_val/tau)
 
+# 理想の総データ数
 num_all_data = 175680
 
+# 各階級の度数，累積度数を格納する配列
 freq_distribution = [0 for i in range(size_list)]
 cu_distribution = [0 for i in range(size_list)]
+# 出力用のデータを格納する配列，パス
 output_data = []
 output_path = 'fixData/RxRainCuDistribution.txt'
 

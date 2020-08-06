@@ -15,9 +15,10 @@ for file_name in file_name_list:
     export_data_list = []
     with open(file_name) as ori_file:
         ori_data = csv.reader(ori_file)
+        # 18GHzのRxDataの処理
         for d in ori_data:
             val = int(d[1])
-            if val < -1:
+            if val < 0:
                 val += 256
             val = int(val/2 - 121)
             d[1] = str(val)
