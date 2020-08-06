@@ -22,6 +22,7 @@ for di in direc:
     p = pathlib.Path(di)
     p.mkdir(parents=True)
 
+
 # 欠損csvファイル数
 loss_csv_file = len(direc)-len(f_name_list)
 for ori_file_name in f_name_list:
@@ -35,9 +36,15 @@ for ori_file_name in f_name_list:
                 cnt += 1
                 continue
             if len(r) != 2:
+                cnt += 1
                 continue
             r[1] = str(int(r[1]) * 0.0083333 * 60)
             export_data.append(r)
+            cnt += 1
+
+    if cnt < 720:
+        print(ori_file_name)
+        continue
 
     with open(export_path, 'w') as exp_file:
         writer = csv.writer(exp_file)
